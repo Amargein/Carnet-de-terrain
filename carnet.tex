@@ -1,0 +1,79 @@
+\documentclass[11pt]{book}
+
+\usepackage{xltxtra}
+	\setmainfont[Mapping=tex-text, Numbers={OldStyle}, Ligatures={Common}]{Linux Libertine O}
+	\setsansfont[Scale=.85]{TeX Gyre Adventor}
+	\setmonofont[Scale=0.85]{Anonymous Pro}
+\usepackage{lipsum}
+\usepackage{pgffor}
+\usepackage[svgnames]{xcolor}
+\usepackage{xifthen}
+\usepackage{marginnote}
+	\renewcommand*{\marginfont}{\scriptsize \sffamily}
+\usepackage[french]{babel}
+\usepackage[a4paper, xetex, includeall=true, twoside, hmargin={2cm,2.5cm}, vmargin={2cm,2cm}]{geometry}
+	\widowpenalty=10000		% pour la gestion des veuves et des orphelines
+	\clubpenalty=10000
+	\raggedbottom
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage[protrusion=true]{microtype}
+\usepackage[autolanguage]{numprint}	% Offre la possibilité d'obtenir un meilleur affichage des grands nombres (avec la commande \nombre)
+\usepackage[threshold=4]{csquotes}
+\usepackage[bookmarks=true,hyperindex=true,colorlinks=false,linktoc=all,plainpages=false]{hyperref}	% permet des hyperliens cliquables
+	\urlstyle{same}
+\usepackage{sectsty}
+	\allsectionsfont{\sffamily \mdseries}
+\usepackage{tocloft}
+	\renewcommand{\cftdot}{}
+	\renewcommand{\cfttoctitlefont}{\Large \sffamily}
+	\renewcommand{\cftpartfont}{\sffamily}
+	\renewcommand{\cftchapfont}{\sffamily}
+	\renewcommand{\cftsecfont}{\sffamily}
+	\renewcommand{\cftsubsecfont}{\sffamily}
+	\renewcommand{\cftsubsubsecfont}{\sffamily}
+	\renewcommand{\cftparafont}{\sffamily}
+	\renewcommand{\cftsubparafont}{\sffamily}
+
+\newenvironment{entree}[2]% date, heading
+{#2\marginnote{\normalsize \sffamily \colorbox{LightSlateGrey}{\color{white}#1}}\par}{}
+\newcommand{\affichetitre}{0}
+\newcommand{\montitre}[1]{\ifthenelse{\affichetitre=1}{\section*{#1}\addcontentsline{toc}{section}{#1}}{}}
+\newread\masource
+
+\title{Mon titre}
+\author{Théo Henri}
+
+\newcommand{\note}[1]{\marginnote{\colorbox{GhostWhite}{\parbox{.94\marginparwidth}{#1}}}}
+
+\newcommand{\AnneeDepart}[0]{2014}
+\newcommand{\AnneeFin}[0]{2015}
+
+\begin{document}
+	\newgeometry{vmargin={2cm,2cm},hmargin={2cm,2cm},ignoreall=true}\sffamily
+	\maketitle
+	\restoregeometry
+	\normalfont
+	
+	\foreach \Annee in {\AnneeDepart,...,\AnneeFin}{%
+%		\part*{Année \Annee}\addcontentsline{toc}{part}{\Annee}
+		\foreach \Mois in {Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Novembre, Décembre}{%
+%			\chapter*{\Mois{} \Annee}\addcontentsline{toc}{chapter}{\Mois{} \Annee}
+			\foreach \Jour in {1,...,31}{%
+				\IfFileExists{\Annee/\Mois/\Jour}{%
+					\openin\masource=\Annee/\Mois/\Jour.tex
+					\read\masource to \firstline
+					\closein\masource
+					\xdef\affichetitre{1}
+					\begin{entree}{\Jour{} \MakeLowercase{\Mois{}} \Annee{}}{\firstline}    
+						\xdef\affichetitre{0}
+						\input{\Annee/\Mois/\Jour}
+					\end{entree} 
+				}{ %
+					% File doesn't exist, so nothing to do.
+				}
+			}
+		}
+	}
+	
+\end{document}
