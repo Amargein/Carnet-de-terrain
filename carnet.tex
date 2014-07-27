@@ -36,9 +36,9 @@
 	\renewcommand{\cftsubparafont}{\sffamily}
 
 \newenvironment{entree}[2]% date, heading
-{#2\marginnote{\normalsize \sffamily \colorbox{LightSlateGrey}{\color{white}#1}}\par}{}
+	{#2\marginnote{\normalsize \sffamily \colorbox{LightSlateGrey}{\color{white}#1}}\par}{}
 \newcommand{\affichetitre}{0}
-\newcommand{\montitre}[1]{\ifthenelse{\affichetitre=1}{\section*{#1}\addcontentsline{toc}{section}{#1}}{}}
+\newcommand{\montitre}[1]{\ifthenelse{\affichetitre=1}{\section*{#1}}{}}
 \newread\masource
 
 \title{Mon titre}
@@ -55,25 +55,27 @@
 	\restoregeometry
 	\normalfont
 	
-	\foreach \Annee in {\AnneeDepart,...,\AnneeFin}{%
-%		\part*{Année \Annee}\addcontentsline{toc}{part}{\Annee}
-		\foreach \Mois in {Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Novembre, Décembre}{%
-%			\chapter*{\Mois{} \Annee}\addcontentsline{toc}{chapter}{\Mois{} \Annee}
-			\foreach \Jour in {1,...,31}{%
-				\IfFileExists{\Annee/\Mois/\Jour}{%
-					\openin\masource=\Annee/\Mois/\Jour.tex
-					\read\masource to \firstline
-					\closein\masource
-					\xdef\affichetitre{1}
-					\begin{entree}{\Jour{} \MakeLowercase{\Mois{}} \Annee{}}{\firstline}    
-						\xdef\affichetitre{0}
-						\input{\Annee/\Mois/\Jour}
-					\end{entree} 
-				}{ %
-					% File doesn't exist, so nothing to do.
+	\chapter*{Carnet de terrain}
+		\foreach \Annee in {\AnneeDepart,...,\AnneeFin}{%
+	%		\part*{Année \Annee}\addcontentsline{toc}{part}{\Annee}
+			\foreach \Mois in {Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Novembre, Décembre}{%
+	%			\chapter*{\Mois{} \Annee}\addcontentsline{toc}{chapter}{\Mois{} \Annee}
+				\foreach \Jour in {1,...,31}{%
+					\IfFileExists{\Annee/\Mois/\Jour}{%
+						\openin\masource=\Annee/\Mois/\Jour.tex
+						\read\masource to \firstline
+						\closein\masource
+						\xdef\affichetitre{1}
+						\begin{entree}{\Jour{} \MakeLowercase{\Mois{}} \Annee{}}{\firstline}    
+							\xdef\affichetitre{0}
+							\input{\Annee/\Mois/\Jour}
+						\end{entree} 
+					}{ %
+						% File doesn't exist, so nothing to do.
+					}
 				}
 			}
 		}
-	}
 	
+	\chapter*{Notes de lectures}
 \end{document}

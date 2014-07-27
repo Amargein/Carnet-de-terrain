@@ -1,38 +1,6 @@
 \select@language {french}
 \select@language {french}
-\contentsline {part}{2014}{5}{Doc-Start}
-\contentsline {chapter}{Janvier{} 2014}{5}{chapter*.1}
-\contentsline {section}{Ma première entrée}{5}{section*.2}
-\contentsline {section}{Encore une entrée}{6}{section*.3}
-\contentsline {chapter}{Février{} 2014}{7}{chapter*.4}
-\contentsline {chapter}{Mars{} 2014}{9}{chapter*.5}
-\contentsline {chapter}{Avril{} 2014}{11}{chapter*.6}
-\contentsline {chapter}{Mai{} 2014}{13}{chapter*.7}
-\contentsline {chapter}{Juin{} 2014}{15}{chapter*.8}
-\contentsline {chapter}{Juillet{} 2014}{17}{chapter*.9}
-\contentsline {chapter}{Mars{} 2014}{19}{chapter*.10}
-\contentsline {chapter}{Avril{} 2014}{21}{chapter*.11}
-\contentsline {chapter}{Mai{} 2014}{23}{chapter*.12}
-\contentsline {chapter}{Juin{} 2014}{25}{chapter*.13}
-\contentsline {chapter}{Juillet{} 2014}{27}{chapter*.14}
-\contentsline {chapter}{Août{} 2014}{29}{chapter*.15}
-\contentsline {chapter}{Septembre{} 2014}{31}{chapter*.16}
-\contentsline {chapter}{Novembre{} 2014}{33}{chapter*.17}
-\contentsline {chapter}{Décembre{} 2014}{35}{chapter*.18}
-\contentsline {part}{2015}{39}{chapter*.18}
-\contentsline {chapter}{Janvier{} 2015}{39}{chapter*.19}
-\contentsline {chapter}{Février{} 2015}{41}{chapter*.20}
-\contentsline {chapter}{Mars{} 2015}{43}{chapter*.21}
-\contentsline {chapter}{Avril{} 2015}{45}{chapter*.22}
-\contentsline {chapter}{Mai{} 2015}{47}{chapter*.23}
-\contentsline {chapter}{Juin{} 2015}{49}{chapter*.24}
-\contentsline {chapter}{Juillet{} 2015}{51}{chapter*.25}
-\contentsline {chapter}{Mars{} 2015}{53}{chapter*.26}
-\contentsline {chapter}{Avril{} 2015}{55}{chapter*.27}
-\contentsline {chapter}{Mai{} 2015}{57}{chapter*.28}
-\contentsline {chapter}{Juin{} 2015}{59}{chapter*.29}
-\contentsline {chapter}{Juillet{} 2015}{61}{chapter*.30}
-\contentsline {chapter}{Août{} 2015}{63}{chapter*.31}
-\contentsline {chapter}{Septembre{} 2015}{65}{chapter*.32}
-\contentsline {chapter}{Novembre{} 2015}{67}{chapter*.33}
-\contentsline {chapter}{Décembre{} 2015}{69}{chapter*.34}
+\contentsline {chapter}{\numberline {1}Carnet de terrain}{3}{chapter.1}
+\contentsline {section}{Ma première entrée}{3}{section*.1}
+\contentsline {section}{Encore une entrée}{4}{section*.2}
+\contentsline {chapter}{\numberline {2}Notes de lectures}{5}{chapter.2}
